@@ -5,7 +5,7 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine.UI;
 using System.Collections.Generic;
-
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public struct LocationInfo
@@ -38,7 +38,7 @@ public class PostportalCanvas : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        //OnOptionSelect(4);
     }
 
     // Update is called once per frame
@@ -92,11 +92,35 @@ public class PostportalCanvas : MonoBehaviour
     {
         EndSrc.gameObject.SetActive(false);
         DetailSrc.gameObject.SetActive(true);
+        mainImage.sprite = LocationData[Option].mainImage;
+        locHeaderText.text = LocationData[Option].locHeaderText;
+        detailText.text = LocationData[Option].detailText;
+        top5PlacesTitle.text = LocationData[Option].top5PlacesTitle;
+        top5Places.text = LocationData[Option].top5Places;
+        for (int i = 0; i < LocationData.Count; i++)
+        {
+            LocationData[i].relatedObject.SetActive(i == Option);
+        }
     }
 
     IEnumerator ExecuteWithDelay(Action action, float delay)
     {
         yield return new WaitForSeconds(delay);
         action.Invoke();
+    }
+
+    // Call this to restart the current scene
+    public void RestartScene()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
+    }
+
+    // Call this to quit the game
+    public void ExitGame()
+    {
+        Debug.Log("Game is exiting...");
+        Application.Quit();
+
     }
 }
