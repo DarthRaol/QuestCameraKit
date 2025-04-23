@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections;
+using DG.Tweening;
 using UnityEngine.UI;
 using System.Text.RegularExpressions;
 
@@ -10,20 +11,57 @@ public class PrePortalScript : MonoBehaviour
     [SerializeField] Transform canvas, mainCamera;
     [SerializeField] InputField InputField;
     [SerializeField] GameObject PassThroughCameraFeed;
-
+    private TouchScreenKeyboard overlayKeyboard;
+    public static string inputText = "";
+    Transform CurrentUI;
 
     void Start()
     {
         StartCoroutine(ShowUISequence());
     }
 
+    private void Update()
+    {
+        if (overlayKeyboard != null)
+            InputField.text = overlayKeyboard.text;
+    }
+
+    public void EnableKeyboard()
+    {
+        overlayKeyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default);
+        
+    }
 
     public void EnableUI(int UI_No)
     {
-        for (int i = 0; i < canvas.childCount; i++)
+        if(CurrentUI == null)
         {
-            canvas.GetChild(i).gameObject.SetActive(i == UI_No);
+            for (int i = 0; i < canvas.childCount; i++)
+            {
+                canvas.GetChild(i).gameObject.SetActive(i == UI_No);
+                if (i == UI_No)
+                {
+                    CurrentUI = canvas.GetChild(i);
+                    canvas.GetChild(i).DOScale(1f, 1f).SetEase(Ease.OutExpo);
+                }
+            }
         }
+        else
+        {
+            CurrentUI.DOScale(0f, 1f).onComplete = () => {
+                for (int i = 0; i < canvas.childCount; i++)
+                {
+                    canvas.GetChild(i).gameObject.SetActive(i == UI_No);
+                    if (i == UI_No)
+                    {
+                        CurrentUI = canvas.GetChild(i);
+                        canvas.GetChild(i).DOScale(1f, 1f).SetEase(Ease.OutExpo);
+                    }
+                }
+            };
+        }
+
+
     }
     public void SaveNumberAndProceed()
     {
@@ -41,6 +79,8 @@ public class PrePortalScript : MonoBehaviour
 
     IEnumerator ShowUISequence()
     {
+        yield return new WaitForSeconds(1f);
+
         float distanceFromCamera = 0.8f; // Adjust as needed
         transform.position = mainCamera.position + (mainCamera.forward * distanceFromCamera) - new Vector3(0, 0f, 0);
 
