@@ -480,9 +480,9 @@ MonoBehaviour:
   _whenSelect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PrePortalScript, Assembly-CSharp
-        m_MethodName: QREnabler
+      - m_Target: {fileID: 8879512874598182205}
+        m_TargetAssemblyTypeName: PostportalCanvas, Assembly-CSharp
+        m_MethodName: ExitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -731,6 +731,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8813416129710728046}
   - component: {fileID: 8879512874598182205}
+  - component: {fileID: 7690046744325632943}
+  - component: {fileID: 4122077077351966365}
   m_Layer: 0
   m_Name: PostPortalCanvas
   m_TagString: Untagged
@@ -822,6 +824,42 @@ MonoBehaviour:
     top5PlacesTitle: Top 5 Scenic View
     top5Places: "Places to Visit: \\n\u2022Cape Wheel  \\n\u2022Table Mountain "
     relatedObject: {fileID: 7439449390912664892}
+--- !u!225 &7690046744325632943
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1591179475874464783}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &4122077077351966365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1591179475874464783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d17db25be71f5d438672aabcbcf4a6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 7690046744325632943}
+  rendererList:
+  - {fileID: 4428284244726693245}
+  - {fileID: 1807113061601107790}
+  - {fileID: 6685247410707886682}
+  - {fileID: 3487469240105138370}
+  - {fileID: 3175938505064714061}
+  - {fileID: 1513061891494685551}
+  - {fileID: 377261245561722771}
+  - {fileID: 1543085155089724348}
+  - {fileID: 3025707004511928785}
+  - {fileID: 5469694880934710382}
 --- !u!1 &1594742178113676694
 GameObject:
   m_ObjectHideFlags: 0
@@ -2651,7 +2689,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: 5838e892-31a4-4f65-a415-dc108aefa14c
-  instanceId: 38cbfb02-9379-4a61-a448-853877c8a942
+  instanceId: a9c84e0a-fb71-4959-90df-90a01501378e
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: 
@@ -4796,7 +4834,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: 5838e892-31a4-4f65-a415-dc108aefa14c
-  instanceId: bb4ac2f7-9887-40f4-8305-19be01f5b417
+  instanceId: f615d2bd-3cb7-426a-950f-ce7eb671242f
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: 
@@ -5045,7 +5083,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: 5838e892-31a4-4f65-a415-dc108aefa14c
-  instanceId: 5b4510e7-5f02-4371-a1ef-b39bee39f513
+  instanceId: 132616e3-03f1-42e6-aaa6-b0ebcd25b04d
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: 
@@ -5574,7 +5612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: 5838e892-31a4-4f65-a415-dc108aefa14c
-  instanceId: 699842c9-8b9c-4262-b18d-529386db7dc2
+  instanceId: eaf24706-66fb-4359-a96d-9493552556f2
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: 
@@ -6221,7 +6259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: 5838e892-31a4-4f65-a415-dc108aefa14c
-  instanceId: 98560191-6d52-46ad-a780-d857e25cd5af
+  instanceId: 8b9e8feb-96e8-41a7-8fd7-3ebd48d46bf9
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: 
@@ -6815,7 +6853,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: 5838e892-31a4-4f65-a415-dc108aefa14c
-  instanceId: e95858ee-a6ed-4094-8ed2-14b4266bb77b
+  instanceId: 67939c7a-9e9c-449b-8263-15a354ca7fc7
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: 
@@ -7099,7 +7137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: 5838e892-31a4-4f65-a415-dc108aefa14c
-  instanceId: 2bf922a1-efd9-4832-9797-6abf561931bf
+  instanceId: f55b4ad1-6745-4b76-afbb-69bb1c16b160
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: 
@@ -8505,9 +8543,9 @@ MonoBehaviour:
   _whenSelect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PrePortalScript, Assembly-CSharp
-        m_MethodName: QREnabler
+      - m_Target: {fileID: 8879512874598182205}
+        m_TargetAssemblyTypeName: PostportalCanvas, Assembly-CSharp
+        m_MethodName: RestartScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

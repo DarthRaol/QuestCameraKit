@@ -12,6 +12,10 @@ public class PrePortalScript : MonoBehaviour
     [SerializeField] InputField InputField;
     [SerializeField] GameObject PassThroughCameraFeed;
     private TouchScreenKeyboard overlayKeyboard;
+    [SerializeField] OVRPassthroughLayer passthroughLayer;
+    public CanvasGroup canvasGroup;
+    public MaterialOpacityMangager materialOpacityMangager;
+
     public static string inputText = "";
     Transform CurrentUI;
 
@@ -21,9 +25,10 @@ public class PrePortalScript : MonoBehaviour
     }
 
     private void Update()
-    {
+    {/*
         if (overlayKeyboard != null)
             InputField.text = overlayKeyboard.text;
+        */
     }
 
     public void EnableKeyboard()
@@ -42,20 +47,30 @@ public class PrePortalScript : MonoBehaviour
                 if (i == UI_No)
                 {
                     CurrentUI = canvas.GetChild(i);
-                    canvas.GetChild(i).DOScale(1f, 1f).SetEase(Ease.OutExpo);
+                    DOVirtual.Float(0, 1, 2, val => {
+                        canvasGroup.alpha = val;
+                        materialOpacityMangager.UpdateRenderersAlpha(val);
+                    });
+                    //canvas.GetChild(i).DOScale(1f, 1f).SetEase(Ease.OutExpo);
                 }
             }
         }
         else
         {
-            CurrentUI.DOScale(0f, 1f).onComplete = () => {
+            DOVirtual.Float(1, 0, 2, val => {
+                canvasGroup.alpha = val;
+                materialOpacityMangager.UpdateRenderersAlpha(val);
+            }).onComplete = () => {
                 for (int i = 0; i < canvas.childCount; i++)
                 {
                     canvas.GetChild(i).gameObject.SetActive(i == UI_No);
                     if (i == UI_No)
                     {
                         CurrentUI = canvas.GetChild(i);
-                        canvas.GetChild(i).DOScale(1f, 1f).SetEase(Ease.OutExpo);
+                        DOVirtual.Float(0, 1, 2, val => {
+                            canvasGroup.alpha = val;
+                            materialOpacityMangager.UpdateRenderersAlpha(val);
+                        });
                     }
                 }
             };
@@ -79,29 +94,43 @@ public class PrePortalScript : MonoBehaviour
 
     IEnumerator ShowUISequence()
     {
-        yield return new WaitForSeconds(1f);
+        DOVirtual.Float(1, 0.2f, 1.5f, angle => {
+            passthroughLayer.textureOpacity = angle;
+        });
+        
+        yield return new WaitForSeconds(2.5f);
 
         float distanceFromCamera = 0.8f; // Adjust as needed
         transform.position = mainCamera.position + (mainCamera.forward * distanceFromCamera) - new Vector3(0, 0f, 0);
 
         transform.LookAt(mainCamera);
         transform.eulerAngles += new Vector3(0, 180, 0);
+        transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
         yield return new WaitForSeconds(2f);
         EnableUI(0);
 
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(5f);
         EnableUI(1);
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
         EnableUI(2);
+        yield return new WaitForSeconds(4f);
+
+        EnableKeyboard();
     }
 
     public void QREnabler()
     {
         EnableUI(4);
         StartCoroutine(ExecuteWithDelay(() => {
-            EnableUI(-1);
             PassThroughCameraFeed.SetActive(true);
-        }, 2f));
+            DOVirtual.Float(0.2f, 1f, 1.5f, angle =>
+            {
+                passthroughLayer.textureOpacity = angle;
+            }).onComplete = () => { 
+            EnableUI(-1);
+            };
+
+            }, 4f));
     }
 }

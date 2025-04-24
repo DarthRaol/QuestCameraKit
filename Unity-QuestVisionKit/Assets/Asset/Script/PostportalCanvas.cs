@@ -24,7 +24,8 @@ public class PostportalCanvas : MonoBehaviour
 
     [SerializeField] Transform UpperPlane, LowerPlane,DetailSrc,EndSrc;
     [Space(10)]
-
+    public CanvasGroup canvasGroup;
+    public MaterialOpacityMangager materialOpacityMangager;
     public Image mainImage;
     public TMP_Text locHeaderText;
     public TMP_Text detailText;
@@ -49,12 +50,18 @@ public class PostportalCanvas : MonoBehaviour
 
     public void OnOptionSelect(int OptionNo)
     {
-        LowerPlane.DOScale(0f, 1f).onComplete = () => {
+        DOVirtual.Float(1, 0, 1, val => {
+            canvasGroup.alpha = val;
+            materialOpacityMangager.UpdateRenderersAlpha(val);
+        }).onComplete = () => {
             LowerPlane.gameObject.SetActive(false);
             StartCoroutine(ExecuteWithDelay(() => {
                 UpperPlane.gameObject.SetActive(true);
                 SetOptionData(OptionNo);
-                UpperPlane.DOScale(1f, 1f).onComplete = () => { 
+                DOVirtual.Float(0, 1, 2, val => {
+                    canvasGroup.alpha = val;
+                    materialOpacityMangager.UpdateRenderersAlpha(val);
+                }).onComplete = () => { 
                 
                 };
             }, 1f));
@@ -63,11 +70,17 @@ public class PostportalCanvas : MonoBehaviour
 
     public void ExploreOtherLocations()
     {
-        UpperPlane.DOScale(0f, 1f).onComplete = () => {
+        DOVirtual.Float(1, 0, 1, val => {
+            canvasGroup.alpha = val;
+            materialOpacityMangager.UpdateRenderersAlpha(val);
+        }).onComplete = () => {
             UpperPlane.gameObject.SetActive(false);
             StartCoroutine(ExecuteWithDelay(() => {
                 LowerPlane.gameObject.SetActive(true);
-                LowerPlane.DOScale(1f, 1f).onComplete = () => {
+                DOVirtual.Float(0, 1, 2, val => {
+                    canvasGroup.alpha = val;
+                    materialOpacityMangager.UpdateRenderersAlpha(val);
+                }).onComplete = () => {
 
                 };
             }, 1f));
@@ -76,11 +89,17 @@ public class PostportalCanvas : MonoBehaviour
 
     public void LeaveRealm()
     {
-        DetailSrc.DOScale(0f, 1f).onComplete = () => {
-            UpperPlane.gameObject.SetActive(false);
+        DOVirtual.Float(1, 0, 1, val => {
+            canvasGroup.alpha = val;
+            materialOpacityMangager.UpdateRenderersAlpha(val);
+        }).onComplete = () => {
+            DetailSrc.gameObject.SetActive(false);
             StartCoroutine(ExecuteWithDelay(() => {
-                LowerPlane.gameObject.SetActive(true);
-                LowerPlane.DOScale(1f, 1f).onComplete = () => {
+                EndSrc.gameObject.SetActive(true);
+                DOVirtual.Float(0, 1, 2, val => {
+                    canvasGroup.alpha = val;
+                    materialOpacityMangager.UpdateRenderersAlpha(val);
+                }).onComplete = () => {
 
                 };
             }, 1f));

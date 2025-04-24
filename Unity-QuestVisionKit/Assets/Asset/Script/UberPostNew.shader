@@ -315,8 +315,8 @@ Shader "Hidden/Universal Render Pipeline/UberPostNew"
             // Saturate is necessary to avoid issues when additive blending pushes the alpha over 1.
             return half4(color, saturate(inputColor.a));
             #else
-            half alpha = SAMPLE_TEXTURE2D_X(_BlitTexture, sampler_LinearClamp, uvDistorted).w;
-            return half4(color, alpha);
+            //half alpha = SAMPLE_TEXTURE2D_X(_BlitTexture, sampler_LinearClamp, uvDistorted).w;
+            return half4(color, 1);
             #endif
         }
 

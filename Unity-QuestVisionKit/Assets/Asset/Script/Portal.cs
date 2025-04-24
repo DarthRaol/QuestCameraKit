@@ -49,7 +49,12 @@ public class Portal : MonoBehaviour
                 if(IsRealEnvCurrently != IsRealEnv)
                 {
                     if (IsRealEnv) onRealEnvEnter.Invoke();
-                    else onVirtualEnvEnter.Invoke();
+                    else { 
+                        onVirtualEnvEnter.Invoke();
+                        DoorScript.Instance.PostUI.SetActive(true);
+                       DoorScript.Instance.ClosePortal();
+                    }
+
                     IsRealEnvCurrently = IsRealEnv;
                 }
             }
