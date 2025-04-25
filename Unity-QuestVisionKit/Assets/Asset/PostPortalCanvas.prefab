@@ -773,6 +773,8 @@ MonoBehaviour:
   LowerPlane: {fileID: 6889836795538921348}
   DetailSrc: {fileID: 1916451030189556523}
   EndSrc: {fileID: 9138887911529054635}
+  canvasGroup: {fileID: 0}
+  materialOpacityMangager: {fileID: 0}
   mainImage: {fileID: 2273367773383436790}
   locHeaderText: {fileID: 6249068887618636715}
   detailText: {fileID: 4943709534497673842}
@@ -2689,7 +2691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: 5838e892-31a4-4f65-a415-dc108aefa14c
-  instanceId: a9c84e0a-fb71-4959-90df-90a01501378e
+  instanceId: 87970f25-1cc8-45d2-9944-cb511f58c2c7
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: 
@@ -4834,7 +4836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: 5838e892-31a4-4f65-a415-dc108aefa14c
-  instanceId: f615d2bd-3cb7-426a-950f-ce7eb671242f
+  instanceId: 58e157ac-ce8b-46b3-8cc7-5504092c4566
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: 
@@ -5083,7 +5085,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: 5838e892-31a4-4f65-a415-dc108aefa14c
-  instanceId: 132616e3-03f1-42e6-aaa6-b0ebcd25b04d
+  instanceId: 6faaa1b7-8cc4-40fc-a420-ea9989d99097
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: 
@@ -5612,7 +5614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: 5838e892-31a4-4f65-a415-dc108aefa14c
-  instanceId: eaf24706-66fb-4359-a96d-9493552556f2
+  instanceId: ae604033-0576-434c-b19c-b539af510069
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: 
@@ -6259,7 +6261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: 5838e892-31a4-4f65-a415-dc108aefa14c
-  instanceId: 8b9e8feb-96e8-41a7-8fd7-3ebd48d46bf9
+  instanceId: 0b91ecb0-3513-4521-802e-f827808662a5
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: 
@@ -6853,7 +6855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: 5838e892-31a4-4f65-a415-dc108aefa14c
-  instanceId: 67939c7a-9e9c-449b-8263-15a354ca7fc7
+  instanceId: c2c6e9e7-67f0-46e5-a82c-b38fbfcd608a
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: 
@@ -7137,7 +7139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: 5838e892-31a4-4f65-a415-dc108aefa14c
-  instanceId: f55b4ad1-6745-4b76-afbb-69bb1c16b160
+  instanceId: fe73e2d9-7a7e-4fd7-a1f1-98f61e1b411a
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: 

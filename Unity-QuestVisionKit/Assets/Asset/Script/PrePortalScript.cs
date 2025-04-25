@@ -15,6 +15,7 @@ public class PrePortalScript : MonoBehaviour
     [SerializeField] OVRPassthroughLayer passthroughLayer;
     public CanvasGroup canvasGroup;
     public MaterialOpacityMangager materialOpacityMangager;
+    public GameObject Door;
 
     public static string inputText = "";
     Transform CurrentUI;
@@ -25,16 +26,19 @@ public class PrePortalScript : MonoBehaviour
     }
 
     private void Update()
-    {/*
+    {
         if (overlayKeyboard != null)
             InputField.text = overlayKeyboard.text;
-        */
+
     }
 
     public void EnableKeyboard()
     {
-        overlayKeyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default);
+        overlayKeyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.NumberPad);
+
+        overlayKeyboard.characterLimit = 10;
         
+        overlayKeyboard.text = InputField.text;
     }
 
     public void EnableUI(int UI_No)
@@ -102,7 +106,7 @@ public class PrePortalScript : MonoBehaviour
 
         float distanceFromCamera = 0.8f; // Adjust as needed
         transform.position = mainCamera.position + (mainCamera.forward * distanceFromCamera) - new Vector3(0, 0f, 0);
-
+        transform.position = new Vector3(transform.position.x, mainCamera.position.y, transform.position.z);
         transform.LookAt(mainCamera);
         transform.eulerAngles += new Vector3(0, 180, 0);
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
@@ -129,6 +133,7 @@ public class PrePortalScript : MonoBehaviour
                 passthroughLayer.textureOpacity = angle;
             }).onComplete = () => { 
             EnableUI(-1);
+                Door.SetActive(true);
             };
 
             }, 4f));

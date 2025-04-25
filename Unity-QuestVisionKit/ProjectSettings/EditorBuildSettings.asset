@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Samples/3 QRCodeTracking/base.unity
+    guid: d71abf6dba1a0da4c94897d71a1b2dba
+  - enabled: 1
     path: Assets/Samples/3 QRCodeTracking/QRCodeTracking.unity
     guid: 987cb8b6148ad48e2882cf1a7a847068
   m_configObjects:

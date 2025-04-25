@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8360708654897467488
 Transform:
   m_ObjectHideFlags: 0
@@ -571,6 +571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 2499927590195575095}
+  PostUI: {fileID: 8266829238674443021}
 --- !u!1 &8722842215539824523
 GameObject:
   m_ObjectHideFlags: 0
@@ -850,9 +851,14 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4122077077351966365, guid: d9852652f11aa514bae57d9a0da35da6, type: 3}
   m_PrefabInstance: {fileID: 7254362392273030914}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 8266829238674443021}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d17db25be71f5d438672aabcbcf4a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &8266829238674443021 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1591179475874464783, guid: d9852652f11aa514bae57d9a0da35da6, type: 3}
+  m_PrefabInstance: {fileID: 7254362392273030914}
+  m_PrefabAsset: {fileID: 0}
